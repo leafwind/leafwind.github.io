@@ -87,7 +87,51 @@
     
 </footer><!-- /.post-info -->
 
-        
+        <p>自從用了 logdown 之後，就非常喜歡 markdown 的寫作方式</p>
+<p>html 實在不是給人寫的，那種事情給機器自動產生就好了</p>
+<p>但 logdown 畢竟還是別人 host 的服務，功能就相對侷限</p>
+<p>在原本我最愛的「拖拉上傳圖片」功能也變成付費之後</p>
+<p>便開始找新的替代方案</p>
+<p>其實 pelican + github 也不是什麼新的組合</p>
+<p>google 一下就有很多文章教你怎麼裝</p>
+<p>對 coding 習慣的宅宅來說 python + markdown + github 跟吃飯一樣</p>
+<p>唯一美中不足的是，如果你對前端技術不熟，那可能沒辦法刻出很 fancy 的介面</p>
+<p>但換個角度想，也有人會分享 pelican theme，並且 logdown 的主題也是蠻弱的</p>
+<h2>python environment</h2>
+<p>首先要有一個 python 環境</p>
+<p>在 linux 上有 python 是天經地義</p>
+<p>windows 的話推薦裝 <a href="https://store.continuum.io/cshop/anaconda/">anaconda</a></p>
+<p>只要下載整個執行檔裝完就有 iPython / pip 等等環境，也不用設 path</p>
+<p>我想應該很少有人在 windows 上開發 python 程式</p>
+<p>所以這種懶人包已經很夠用了</p>
+<h2>安裝必要套件</h2>
+<p>一開始只需要兩個 package</p>
+<p>如果你不想用 markdown 寫 blog 的話甚至只要裝 pelican 就好</p>
+<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">markdown</span> <span class="n">pelican</span>
+</pre></div>
+
+
+<p>通常中文的 windows 會卡在 pelican 編譯不過</p>
+<p>在我浪費了一個美好的假日下午之後</p>
+<p>終於發現直接 compile source code 才是正解..</p>
+<p><a href="https://github.com/getpelican/pelican">getpelican</a></p>
+<div class="highlight"><pre><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+
+
+<h2>blog 資料夾結構</h2>
+<div class="highlight"><pre><span class="n">mkdir</span> <span class="n">blog</span>
+<span class="n">cd</span> <span class="n">blog</span>
+<span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span>
+</pre></div>
+
+
+<p>基本上都用預設值就好，之後可以再改</p>
+<h2>Disqus</h2>
+<p><a href="https://disqus.com/">Disqus</a></p>
+<p>Admin -&gt; Settings -&gt;Your website's shortname is XXX
+<code>pelicanconf.py
+DISQUS_SITENAME = 'shortname'</code></p>
 
       </div><!-- /.entry-content -->
       <div class="comments">
