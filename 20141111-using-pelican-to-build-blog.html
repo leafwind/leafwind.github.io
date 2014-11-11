@@ -139,9 +139,9 @@ LeafHub            </a>
 
 
 <h2>blog 資料夾結構</h2>
-<div class="highlight"><pre><span class="n">mkdir</span> <span class="n">blog</span>
-<span class="n">cd</span> <span class="n">blog</span>
-<span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span>
+<div class="highlight"><pre>mkdir blog
+<span class="nb">cd </span>blog
+pelican-quickstart
 </pre></div>
 
 
@@ -150,14 +150,14 @@ LeafHub            </a>
 <p>另外 <code>output</code> 則是放產生出來的網頁檔</p>
 <h3>linking with github</h3>
 <p>先把 github 的文章 clone 下來：</p>
-<div class="highlight"><pre><span class="n">cd</span> <span class="n">output</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="err">@</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">:</span><span class="n">username</span><span class="o">/</span><span class="n">username</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">git</span>
+<div class="highlight"><pre><span class="nb">cd </span>output
+git clone git@github.com:username/username.github.io.git
 </pre></div>
 
 
 <p>再設定 pelican 輸出到 github 資料夾
 pelicanconf.py add:</p>
-<div class="highlight"><pre><span class="n">OUTPUT_PATH</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">output</span><span class="o">/</span><span class="n">username</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="err">&#39;</span>
+<div class="highlight"><pre><span class="n">OUTPUT_PATH</span> <span class="o">=</span> <span class="s">&#39;output/username.github.io/&#39;</span>
 </pre></div>
 
 
@@ -248,13 +248,8 @@ pelicanconf.py:</p>
                 <li class="list-group-item"><a href="http://leafwind.github.io/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                     <ul class="list-group " id="tags">
                         <li class="list-group-item tag-4">
-                            <a href="http://leafwind.github.io/tag/pelican.html">
-                                pelican
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://leafwind.github.io/tag/github.html">
-                                github
+                            <a href="http://leafwind.github.io/tag/blog.html">
+                                blog
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -263,8 +258,13 @@ pelicanconf.py:</p>
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="http://leafwind.github.io/tag/blog.html">
-                                blog
+                            <a href="http://leafwind.github.io/tag/github.html">
+                                github
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://leafwind.github.io/tag/pelican.html">
+                                pelican
                             </a>
                         </li>
                     </ul>
