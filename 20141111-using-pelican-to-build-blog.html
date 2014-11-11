@@ -171,15 +171,15 @@ pelicanconf.py add:</p>
 <h2>安裝主題</h2>
 <p>借用 jsliang 製作的 <a href="http://jsliang.com/blog/2013/02/moving-to-pelican-hosting-on-github-pages.html">pelican-fresh</a></p>
 <p>responsive layout 感覺就很厲害（拼命縮放視窗中）</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/jsliang/pelican-fresh.git</span>
-<span class="n">cd</span> <span class="n">pelican</span><span class="o">-</span><span class="n">fresh</span>
-<span class="n">pelican</span><span class="o">-</span><span class="n">themes</span> <span class="o">-</span><span class="n">i</span> <span class="n">pelican</span><span class="o">-</span><span class="n">fresh</span> <span class="err">#</span> <span class="n">theme</span> <span class="n">dir</span> <span class="n">name</span>
+<div class="highlight"><pre>git clone https://github.com/jsliang/pelican-fresh.git
+<span class="nb">cd </span>pelican-fresh
+pelican-themes -i pelican-fresh <span class="c"># theme dir name</span>
 </pre></div>
 
 
 <p>再套用設定到</p>
 <p>pelicanconf.py:</p>
-<div class="highlight"><pre><span class="n">THEME</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">pelican</span><span class="o">-</span><span class="n">fresh</span><span class="err">&#39;</span>
+<div class="highlight"><pre><span class="n">THEME</span> <span class="o">=</span> <span class="s">&#39;pelican-fresh&#39;</span>
 </pre></div>
 
 
@@ -187,13 +187,13 @@ pelicanconf.py add:</p>
 <p><a href="https://disqus.com/">Disqus</a></p>
 <p>Admin -&gt; Settings -&gt;Your website's shortname is XXX
 pelicanconf.py:</p>
-<div class="highlight"><pre><span class="n">DISQUS_SITENAME</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">shortname</span><span class="err">&#39;</span>
+<div class="highlight"><pre><span class="n">DISQUS_SITENAME</span> <span class="o">=</span> <span class="s">&#39;shortname&#39;</span>
 </pre></div>
 
 
 <h2>Google Analytics</h2>
 <p>pelicanconf.py:</p>
-<div class="highlight"><pre><span class="n">GOOGLE_ANALYTICS</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">UA</span><span class="o">-</span><span class="n">XXXXXXXX</span><span class="o">-</span><span class="n">X</span><span class="err">&#39;</span>
+<div class="highlight"><pre><span class="n">GOOGLE_ANALYTICS</span> <span class="o">=</span> <span class="s">&#39;UA-XXXXXXXX-X&#39;</span>
 </pre></div>
             </div>
             <!-- /.entry-content -->
@@ -253,8 +253,8 @@ pelicanconf.py:</p>
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="http://leafwind.github.io/tag/markdown.html">
-                                markdown
+                            <a href="http://leafwind.github.io/tag/pelican.html">
+                                pelican
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -263,8 +263,8 @@ pelicanconf.py:</p>
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
-                            <a href="http://leafwind.github.io/tag/pelican.html">
-                                pelican
+                            <a href="http://leafwind.github.io/tag/markdown.html">
+                                markdown
                             </a>
                         </li>
                     </ul>
