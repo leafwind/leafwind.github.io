@@ -68,16 +68,33 @@ by <a class="url fn" href="http://leafwind.github.io/author/leafwind.html">leafw
  
         </div>
         
-        <div><p>自從用了 logdown 之後，就非常喜歡 markdown 的寫作方式</p>
+        <div><h2>前言</h2>
+<p>自從用了 logdown 之後，就非常喜歡 markdown 的寫作方式</p>
 <p>html 實在不是給人寫的，那種事情給機器自動產生就好了</p>
 <p>但 logdown 畢竟還是別人 host 的服務，功能就相對侷限</p>
 <p>在原本我最愛的「拖拉上傳圖片」功能也變成付費之後</p>
 <p>便開始找新的替代方案</p>
 <p>其實 pelican + github 也不是什麼新的組合</p>
 <p>google 一下就有很多文章教你怎麼裝</p>
-<p>對 coding 習慣的宅宅來說 python + markdown + github 跟吃飯一樣</p>
-<p>唯一美中不足的是，如果你對前端技術不熟，那可能沒辦法刻出很 fancy 的介面</p>
-<p>但換個角度想，也有人會分享 pelican theme，並且 logdown 的主題也是蠻弱的</p>
+<p>這篇只是記錄一下我的安裝過程</p>
+<h2>why pelican?</h2>
+<p>對 coding 習慣的宅宅來說</p>
+<p>使用 python / markdown / github 這些工具跟吃飯一樣</p>
+<p>很多時候只是要記錄一些事情</p>
+<p>但如果你想把有 code 的筆記貼到一般部落格服務</p>
+<p>那不是~~腦袋有問題~~不知道有其他工具就是~~時間太多~~耐心過於常人</p>
+<p>html 很簡單但排版非常費工</p>
+<p>makrdown 更簡單同時不需要浪費生命在不必要的排版上</p>
+<p>並且支援許多程式語法</p>
+<p>另一個好處是 markdown 本身就是原始碼</p>
+<p>不像 html 備份的時候會遇到一大堆格式轉換問題</p>
+<p>（雖然小問題也是會有）</p>
+<p>但基本上把文章備份在 dropbox 之類的地方完全不會怕哪天服務倒閉</p>
+<p>唯一美中不足的是，如果你對前端技術不熟</p>
+<p>那可能沒辦法刻出像 pixnet 之類的服務一樣很 fancy 的介面</p>
+<p>但換個角度想，pelican theme 蠻多是開放分享而且有在更新的</p>
+<p>跟只能用內建主題的 logdown 比起來還強大得多</p>
+<p>那就從第一步開始吧：</p>
 <h2>python environment</h2>
 <p>首先要有一個 python 環境</p>
 <p>在 linux 上有 python 是天經地義</p>
@@ -101,6 +118,7 @@ by <a class="url fn" href="http://leafwind.github.io/author/leafwind.html">leafw
 
 
 <h2>blog 資料夾結構</h2>
+<p>先建立一個 <code>blog</code> 資料夾，然後下指令讓 pelican 自動產生其他所需的檔案</p>
 <div class="highlight"><pre>mkdir blog
 <span class="nb">cd </span>blog
 pelican-quickstart
@@ -127,9 +145,9 @@ pelicanconf.py add:</p>
 <p>接下來只要在 content 裡面寫好 .md 的文章</p>
 <p>在 anaconda command prompt 執行 pelican</p>
 <p>然後再 push 到 github 上面</p>
-<p>你的 blog 就會出現在 http://username.github.io/ 囉</p>
+<p>你的 blog 就會出現在 <code>http://username.github.io/</code> 囉</p>
 <p>（如果用 linux 的話更方便，可以寫在一個 make 裡面）</p>
-<p>不過還有很多要調整的地方</p>
+<p>到這裡一個基本的 blog 架構就有了，接下來是其他附加的功能</p>
 <h2>安裝主題</h2>
 <p>借用 jsliang 製作的 <a href="http://jsliang.com/blog/2013/02/moving-to-pelican-hosting-on-github-pages.html">pelican-fresh</a></p>
 <p>responsive layout 感覺就很厲害（拼命縮放視窗中）</p>
@@ -145,12 +163,13 @@ pelican-themes -i pelican-fresh <span class="c"># theme dir name</span>
 </pre></div>
 
 
+<h3>其他主題</h3>
 <p>後來發現還有好多 theme 可以用，大部分也都是 responsive</p>
 <div class="highlight"><pre>git clone https://github.com/getpelican/pelican-themes
 </pre></div>
 
 
-<p><code>gum</code>, <code>pelican-bootstrap3</code>, <code>tuxlite_tbs</code> 是我比較喜歡的</p>
+<p>其中 <code>gum</code>, <code>pelican-bootstrap3</code>, <code>tuxlite_tbs</code> 是我比較喜歡的</p>
 <p>（目前是用 tuxlite_tbs）</p>
 <h2>Disqus</h2>
 <p>有了 disqus 就等於有了跨站的留言系統，非常方便</p>
