@@ -114,7 +114,7 @@
 <p>通常中文的 windows 會卡在 pelican 編譯不過</p>
 <p>在我浪費了一個美好的假日下午之後</p>
 <p>終於發現直接 compile source code 才是正解..</p>
-<p><a href="https://github.com/getpelican/pelican">getpelican</a></p>
+<p>到 <a href="https://github.com/getpelican/pelican">getpelican</a> 下載原始碼然後切到資料夾裡面：</p>
 <div class="highlight"><pre><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
 </pre></div>
 
@@ -126,12 +126,56 @@
 </pre></div>
 
 
-<p>基本上都用預設值就好，之後可以再改</p>
+<p>過程中不清楚的可以先用預設值就好，之後再改</p>
+<p>現在 <code>blog</code> 資料夾底下會有一個 <code>content</code> 放文章原始檔
+另外 <code>output</code> 則是放產生出來的網頁檔</p>
+<h3>linking with github</h3>
+<p>先把 github 的文章 clone 下來：</p>
+<div class="highlight"><pre><span class="n">cd</span> <span class="n">output</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="err">@</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">:</span><span class="n">username</span><span class="o">/</span><span class="n">username</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">git</span>
+</pre></div>
+
+
+<p>再設定 pelican 輸出到 github 資料夾
+pelicanconf.py add:</p>
+<div class="highlight"><pre><span class="n">OUTPUT_PATH</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">output</span><span class="o">/</span><span class="n">username</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="err">&#39;</span>
+</pre></div>
+
+
+<p>這樣就把 github 連接好了</p>
+<p>接下來只要在 content 裡面寫好 .md 的文章</p>
+<p>在 anaconda command prompt 執行 pelican</p>
+<p>然後再 push 到 github 上面</p>
+<p>你的 blog 就會出現在 http://username.github.io/ 囉</p>
+<p>（如果用 linux 的話更方便，可以寫在一個 make 裡面）</p>
+<p>不過還有很多要調整的地方</p>
+<h2>安裝主題</h2>
+<p>借用 jsliang 製作的 <a href="http://jsliang.com/blog/2013/02/moving-to-pelican-hosting-on-github-pages.html">pelican-fresh</a></p>
+<p>responsive layout 感覺就很厲害（拼命縮放視窗中）</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/jsliang/pelican-fresh.git</span>
+<span class="n">cd</span> <span class="n">pelican</span><span class="o">-</span><span class="n">fresh</span>
+<span class="n">pelican</span><span class="o">-</span><span class="n">themes</span> <span class="o">-</span><span class="n">i</span> <span class="n">pelican</span><span class="o">-</span><span class="n">fresh</span> <span class="err">#</span> <span class="n">theme</span> <span class="n">dir</span> <span class="n">name</span>
+</pre></div>
+
+
+<p>再套用設定到</p>
+<p>pelicanconf.py:</p>
+<div class="highlight"><pre><span class="n">THEME</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">pelican</span><span class="o">-</span><span class="n">fresh</span><span class="err">&#39;</span>
+</pre></div>
+
+
 <h2>Disqus</h2>
 <p><a href="https://disqus.com/">Disqus</a></p>
 <p>Admin -&gt; Settings -&gt;Your website's shortname is XXX
-<code>pelicanconf.py
-DISQUS_SITENAME = 'shortname'</code></p>
+pelicanconf.py:</p>
+<div class="highlight"><pre><span class="n">DISQUS_SITENAME</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">shortname</span><span class="err">&#39;</span>
+</pre></div>
+
+
+<h2>Google Analytics</h2>
+<p>pelicanconf.py:</p>
+<div class="highlight"><pre><span class="n">GOOGLE_ANALYTICS</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">UA</span><span class="o">-</span><span class="n">XXXXXXXX</span><span class="o">-</span><span class="n">X</span><span class="err">&#39;</span>
+</pre></div>
 
       </div><!-- /.entry-content -->
       <div class="comments">
