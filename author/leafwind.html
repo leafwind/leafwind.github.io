@@ -89,7 +89,8 @@ by <a class="url fn" href="http://leafwind.github.io/author/leafwind.html">leafw
 <hr />
 <p>其實 pelican + github 也不是什麼新的組合</p>
 <p>google 一下就有很多文章教你怎麼裝</p>
-<p>這篇只是記錄一下我的安裝過程</p>
+<p>這篇只是記錄一下我的安裝過程
+<!-- PELICAN_END_SUMMARY --></p>
 <h2>why pelican?</h2>
 <p>對 coding 習慣的宅宅來說</p>
 <p>使用 python / markdown / github 這些工具跟吃飯一樣</p>
@@ -235,20 +236,17 @@ pelican-themes -i pelican-fresh <span class="c"># theme dir name</span>
 
 <p>其中 <code>gum</code>, <code>pelican-bootstrap3</code>, <code>tuxlite_tbs</code> 是我比較喜歡的</p>
 <ul>
-<li>gum
-<img alt="gum" src="https://lh5.googleusercontent.com/EXU2DtwuLCyXPOoMo8m4p2fI_h0Geg9UXAptfkwlzA=w600-h614-no" /></li>
+<li>gum</li>
 </ul>
-<hr />
+<h2><img alt="gum" src="https://lh5.googleusercontent.com/EXU2DtwuLCyXPOoMo8m4p2fI_h0Geg9UXAptfkwlzA=w600-h614-no" /></h2>
 <ul>
-<li>pelican-bootstrap3
-<img alt="pelican-bootstrap3" src="https://lh5.googleusercontent.com/gGucQ8edPX8euZ6R-xOxfaY98KfwA6ccrPVEJfdzMw=w600-h624-no" /></li>
+<li>pelican-bootstrap3</li>
 </ul>
-<hr />
+<h2><img alt="pelican-bootstrap3" src="https://lh5.googleusercontent.com/gGucQ8edPX8euZ6R-xOxfaY98KfwA6ccrPVEJfdzMw=w600-h624-no" /></h2>
 <ul>
-<li>tuxlite_tbs: （目前使用）
-<img alt="tuxlite_tbs" src="https://lh6.googleusercontent.com/Tx_u5u-bRqxIeFSr0lG06XKbiv1jUrIJRMUa59Xw_g=w600-h463-no" /></li>
+<li>tuxlite_tbs: （目前使用）</li>
 </ul>
-<hr />
+<h2><img alt="tuxlite_tbs" src="https://lh6.googleusercontent.com/Tx_u5u-bRqxIeFSr0lG06XKbiv1jUrIJRMUa59Xw_g=w600-h463-no" /></h2>
 <h2>Disqus</h2>
 <p>有了 disqus 就等於有了跨站的留言系統，非常方便</p>
 <p><a href="https://disqus.com/">Disqus</a></p>
@@ -262,6 +260,28 @@ pelican-themes -i pelican-fresh <span class="c"># theme dir name</span>
 <p>暫時用不到，不過還是先設定好放著</p>
 <p>pelicanconf.py:</p>
 <div class="highlight"><pre><span class="n">GOOGLE_ANALYTICS</span> <span class="o">=</span> <span class="s">&#39;UA-XXXXXXXX-X&#39;</span>
+</pre></div>
+
+
+<h2>Summary plugin</h2>
+<p>到 <a href="https://github.com/getpelican/pelican-plugins">這裡</a> 下載</p>
+<p>在 <code>pelicanconf.py</code> 加入：</p>
+<div class="highlight"><pre><span class="n">PLUGIN_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;pelican-plugins&#39;</span><span class="p">]</span>
+<span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;summary&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>之後文章只要這樣寫就會自動抓出 summary：</p>
+<div class="highlight"><pre><span class="n">Title</span><span class="o">:</span> <span class="n">My</span> <span class="kd">super</span> <span class="n">title</span>
+<span class="n">Date</span><span class="o">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">03</span> <span class="mi">10</span><span class="o">:</span><span class="mi">20</span>
+<span class="n">Tags</span><span class="o">:</span> <span class="n">thats</span><span class="o">,</span> <span class="n">awesome</span>
+<span class="n">Category</span><span class="o">:</span> <span class="n">yeah</span>
+<span class="n">Slug</span><span class="o">:</span> <span class="n">my</span><span class="o">-</span><span class="kd">super</span><span class="o">-</span><span class="n">post</span>
+<span class="n">Author</span><span class="o">:</span> <span class="n">Alexis</span> <span class="n">Metaireau</span>
+
+<span class="n">This</span> <span class="k">is</span> <span class="n">the</span> <span class="n">content</span> <span class="n">of</span> <span class="n">my</span> <span class="kd">super</span> <span class="n">blog</span> <span class="n">post</span><span class="o">.</span>
+<span class="o">&lt;!--</span> <span class="n">PELICAN_END_SUMMARY</span> <span class="o">--&gt;</span>
+<span class="n">and</span> <span class="k">this</span> <span class="n">content</span> <span class="n">occurs</span> <span class="n">after</span> <span class="n">the</span> <span class="n">summary</span><span class="o">.</span>
 </pre></div></div>
         <hr />
     </div>
