@@ -194,14 +194,14 @@ pelican-themes -i pelican-fresh <span class="c"># theme dir name</span>
 
 <h3>安裝 ShareThis script</h3>
 <ul>
-<li>pelicanconf.py 加上：</li>
+<li><code>pelicanconf.py</code> 加上：</li>
 </ul>
 <div class="highlight"><pre><span class="n">SHARETHIS_PUB_KEY</span> <span class="o">=</span> <span class="s">&#39;你的 ShareThis key&#39;</span>
 </pre></div>
 
 
 <ul>
-<li>base.html <code>&lt;head&gt;</code> 裡加上：</li>
+<li><code>base.html</code> <code>&lt;head&gt;</code> 裡加上：</li>
 </ul>
 <div class="highlight"><pre><span class="o">&lt;</span><span class="n">script</span> <span class="nb">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="n">src</span><span class="o">=</span><span class="s">&quot;http://w.sharethis.com/button/buttons.js&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="n">script</span> <span class="nb">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
@@ -216,7 +216,7 @@ pelican-themes -i pelican-fresh <span class="c"># theme dir name</span>
 
 
 <ul>
-<li>article.html</li>
+<li><code>article.html</code></li>
 </ul>
 <p>在 <code>&lt;div&gt;{{ article.content }}&lt;/div&gt;</code> 之前（或其他想要放的地方）加上：</p>
 <div class="highlight"><pre><span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">SHARETHIS_PUB_KEY</span> <span class="o">%</span><span class="p">}</span>
