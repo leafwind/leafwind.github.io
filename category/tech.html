@@ -199,7 +199,7 @@ pelican-themes -i pelican-fresh <span class="c"># theme dir name</span>
 
 
 <ul>
-<li>base.html <head> 裡加上：</li>
+<li>base.html <code>&lt;head&gt;</code> 裡加上：</li>
 </ul>
 <div class="highlight"><pre><span class="o">&lt;</span><span class="n">script</span> <span class="nb">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="n">src</span><span class="o">=</span><span class="s">&quot;http://w.sharethis.com/button/buttons.js&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="n">script</span> <span class="nb">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
@@ -216,14 +216,14 @@ pelican-themes -i pelican-fresh <span class="c"># theme dir name</span>
 <ul>
 <li>article.html</li>
 </ul>
-<p>在 <div>{{ article.content }}</div> 之前（或其他想要放的地方）加上：</p>
-<div class="highlight"><pre>    <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">SHARETHIS_PUB_KEY</span> <span class="o">%</span><span class="p">}</span>
-    <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;sharethis-top&quot;</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&#39;st_fblike_hcount&#39;</span> <span class="n">displayText</span><span class="o">=</span><span class="s">&#39;Facebook Like&#39;</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&#39;st_plusone_hcount&#39;</span> <span class="n">displayText</span><span class="o">=</span><span class="s">&#39;Google +1&#39;</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&#39;st_twitter_hcount&#39;</span> <span class="n">displayText</span><span class="o">=</span><span class="s">&#39;Tweet&#39;</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
-    <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-    <span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+<p>在 <code>&lt;div&gt;{{ article.content }}&lt;/div&gt;</code> 之前（或其他想要放的地方）加上：</p>
+<div class="highlight"><pre><span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">SHARETHIS_PUB_KEY</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;sharethis-top&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&#39;st_fblike_hcount&#39;</span> <span class="n">displayText</span><span class="o">=</span><span class="s">&#39;Facebook Like&#39;</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&#39;st_plusone_hcount&#39;</span> <span class="n">displayText</span><span class="o">=</span><span class="s">&#39;Google +1&#39;</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&#39;st_twitter_hcount&#39;</span> <span class="n">displayText</span><span class="o">=</span><span class="s">&#39;Tweet&#39;</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
 </pre></div>
 
 
@@ -236,17 +236,17 @@ pelican-themes -i pelican-fresh <span class="c"># theme dir name</span>
 <p>其中 <code>gum</code>, <code>pelican-bootstrap3</code>, <code>tuxlite_tbs</code> 是我比較喜歡的</p>
 <ul>
 <li>gum
-<img alt="gum" src="https://raw.githubusercontent.com/getpelican/pelican-themes/master/gum/screenshot.png" /></li>
+<img alt="gum" src="https://lh5.googleusercontent.com/EXU2DtwuLCyXPOoMo8m4p2fI_h0Geg9UXAptfkwlzA=w600-h614-no" /></li>
 </ul>
 <hr />
 <ul>
 <li>pelican-bootstrap3
-<img alt="pelican-bootstrap3" src="https://raw.githubusercontent.com/getpelican/pelican-themes/master/pelican-bootstrap3/screenshot-article.png" /></li>
+<img alt="pelican-bootstrap3" src="https://lh5.googleusercontent.com/gGucQ8edPX8euZ6R-xOxfaY98KfwA6ccrPVEJfdzMw=w600-h624-no" /></li>
 </ul>
 <hr />
 <ul>
 <li>tuxlite_tbs: （目前使用）
-<img alt="tuxlite_tbs" src="https://raw.githubusercontent.com/getpelican/pelican-themes/master/tuxlite_tbs/screenshot.png" /></li>
+<img alt="tuxlite_tbs" src="https://lh6.googleusercontent.com/Tx_u5u-bRqxIeFSr0lG06XKbiv1jUrIJRMUa59Xw_g=w600-h463-no" /></li>
 </ul>
 <hr />
 <h2>Disqus</h2>
