@@ -1,229 +1,371 @@
 <!DOCTYPE html>
-<html lang="tw"
->
+<html lang="tw">
 <head>
-    <title>pelican - LeafHub</title>
-    <!-- Using the latest rendering mode for IE -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
+    <title>LeafHub</title>
+    <meta name="description" content="">
+    <meta name="author" content="leafwind">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://leafwind.github.io/theme/html5.js"></script>
+    <![endif]-->
 
+    <!-- Le styles -->
+    <link href="http://leafwind.github.io/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://leafwind.github.io/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://leafwind.github.io/theme/local.css" rel="stylesheet">
+    <link href="http://leafwind.github.io/theme/pygments.css" rel="stylesheet">
 
+    <!-- ShareThis Social Button-->
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
+        stLight.options({
+            publisher: "b9823d16-48e4-484a-8422-413740fd6b67",
+            doNotHash: false,
+            doNotCopy: false,
+            hashAddressBar: false
+        });
+    </script>
 
-    <meta name="author" content="leafwind" />
-    <meta name="keywords" content="pelican" />
-
-    <!-- Enable latex plugin -->
-
-
-    <!-- Open Graph tags -->
-        <meta property="og:site_name" content="LeafHub" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="LeafHub"/>
-        <meta property="og:url" content="http://leafwind.github.io"/>
-        <meta property="og:description" content="LeafHub"/>
-
-
-    <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://leafwind.github.io/theme/css/bootstrap.min.css" type="text/css"/>
-    <link href="http://leafwind.github.io/theme/css/font-awesome.min.css" rel="stylesheet">
-
-    <link href="http://leafwind.github.io/theme/css/pygments/default.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://leafwind.github.io/theme/css/style.css" type="text/css"/>
-
-
-
+    <!-- So Firefox can bookmark->"abo this site" -->
 
 </head>
+
 <body>
 
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="navbar">
+    <div class="navbar-inner">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="http://leafwind.github.io/" class="navbar-brand">
-LeafHub            </a>
-        </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-                        <li >
-                            <a href="http://leafwind.github.io/category/internet.html">Internet</a>
-                        </li>
-                        <li >
-                            <a href="http://leafwind.github.io/category/openpeople.html">Openpeople</a>
-                        </li>
-                        <li >
-                            <a href="http://leafwind.github.io/category/tech.html">Tech</a>
-                        </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://leafwind.github.io/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-</div> <!-- /.navbar -->
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-9">
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
 
-            <article>
-                <h2><a href="http://leafwind.github.io/20141111-using-pelican-to-build-blog.html">用 pelican + github 建立完全免費的 blog</a></h2>
-                <div class="summary"><p>123wgwgewgweg<a class="read-more" href="/20141111-using-pelican-to-build-blog.html"><span>&#32380;&#32396;&#38321;&#35712;</span></a></p>
-                    <a class="btn btn-default btn-xs" href="http://leafwind.github.io/20141111-using-pelican-to-build-blog.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
+        <a class="brand" href="http://leafwind.github.io">LeafHub</a>
 
-        </div>
-        <div class="col-sm-3 well well-sm" id="sidebar">
-
-<aside>
-    <section>
-        <ul class="list-group list-group-flush">
-                <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
-                  <ul class="list-group" id="social">
-                    <li class="list-group-item"><a href="#"><i class="fa fa-social-link---tbd-square fa-lg"></i> Social Link - TBD</a></li>
-                  </ul>
-                </li>
-
-
-
-                <li class="list-group-item"><a href="http://leafwind.github.io/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-                    <ul class="list-group " id="tags">
-                        <li class="list-group-item tag-4">
-                            <a href="http://leafwind.github.io/tag/github.html">
-                                github
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://leafwind.github.io/tag/blog.html">
-                                blog
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://leafwind.github.io/tag/markdown.html">
-                                markdown
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://leafwind.github.io/tag/huan-pi.html">
-                                換皮
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://leafwind.github.io/tag/peng-jin-peng.html">
-                                彭錦鵬
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://leafwind.github.io/tag/shou-ji.html">
-                                手機
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://leafwind.github.io/tag/lian-ke-bian-lun.html">
-                                連柯辯論
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://leafwind.github.io/tag/tai-wan-jing-zheng-li-lun-tan.html">
-                                台灣競爭力論壇
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://leafwind.github.io/tag/you-xi.html">
-                                遊戲
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://leafwind.github.io/tag/pelican.html">
-                                pelican
-                            </a>
-                        </li>
-                    </ul>
-                </li>    
-
-
-    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
-      <ul class="list-group" id="links">
-        <li class="list-group-item">
-            <a href="http://getpelican.com/" target="_blank">
-                Pelican
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="http://python.org/" target="_blank">
-                Python.org
-            </a>
-        </li>
-      </ul>
-    </li>
-
+        <div class="nav-collapse">
+        <ul class="nav">
+            
         </ul>
-    </section>
-
-</aside>        </div>
+        </div>
+        
+    </div>
     </div>
 </div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+        
+
+        
+
+
+    <div class='article'>
+        <div class="content-title">
+            <a href="http://leafwind.github.io/20141111-using-pelican-to-build-blog.html"><h1>用 pelican + github 建立完全免費的 blog</h1></a>
+週二 11 十一月 2014
+
+by <a class="url fn" href="http://leafwind.github.io/author/leafwind.html">leafwind</a>
+ 
+
+
+ 
+        </div>
+        
+        <div><p><img alt="python" src="https://lh5.googleusercontent.com/-Ohlo1KgsThU/VGJDLznI91I/AAAAAAAAAEM/xCvsvmiqziU/s128-no/Python_logo%5B1%5D.png" /><img alt="pelican-image" src="https://lh5.googleusercontent.com/u7NWKmcEDaTNBJHYSH6xEcLSki7-TC7zaIhlZctkDA=s200-no" /><img alt="github" src="https://lh5.googleusercontent.com/-DKPyRhwsZNI/VGJDokSPLLI/AAAAAAAAAEo/5yQN2duKHJM/s256-no/github%5B1%5D.png" /></p>
+<h2>前言</h2>
+<p>自從用了 logdown 之後，就非常喜歡 markdown 的寫作方式</p>
+<p>html 實在不是給人寫的，那種事情給機器自動產生就好了</p>
+<p>但 logdown 畢竟還是別人 host 的服務，功能就相對侷限</p>
+<p>在原本我最愛的「拖拉上傳圖片」功能也變成付費之後</p>
+<p>便開始找新的替代方案</p>
+<hr />
+<p>其實 pelican + github 也不是什麼新的組合</p>
+<p>google 一下就有很多文章教你怎麼裝</p>
+<p>這篇只是記錄一下我的安裝過程</p>
+<h2>why pelican?</h2>
+<p>對 coding 習慣的宅宅來說</p>
+<p>使用 python / markdown / github 這些工具跟吃飯一樣</p>
+<p>很多時候只是要記錄一些事情</p>
+<p>但如果你想把有 code 的筆記貼到一般部落格服務</p>
+<p>那不是~~腦袋有問題~~不知道有其他工具就是~~時間太多~~耐心過於常人</p>
+<p>html 很簡單但排版非常費工</p>
+<p>makrdown 更簡單同時不需要浪費生命在不必要的排版上</p>
+<p>並且支援許多程式語法</p>
+<hr />
+<p>另一個好處是 markdown 本身就是原始碼</p>
+<p>不像 html 備份的時候會遇到一大堆格式轉換問題</p>
+<p>（雖然小問題也是會有）</p>
+<p>但基本上把文章備份在 dropbox 之類的地方完全不會怕哪天服務倒閉</p>
+<p>唯一美中不足的是，如果你對前端技術不熟</p>
+<p>那可能沒辦法刻出像 pixnet 之類的服務一樣很 fancy 的介面</p>
+<p>但換個角度想，pelican theme 蠻多是開放分享而且有在更新的</p>
+<p>跟只能用內建主題的 logdown 比起來還強大得多</p>
+<p>那就從第一步開始吧：</p>
+<h2>python environment</h2>
+<p>首先要有一個 python 環境</p>
+<p>在 linux 上有 python 是天經地義</p>
+<p>windows 的話推薦裝 <a href="https://store.continuum.io/cshop/anaconda/">anaconda</a></p>
+<p>只要下載整個執行檔裝完就有 iPython / pip 等等環境，也不用設 path</p>
+<p>我想應該很少有人在 windows 上開發 python 程式</p>
+<p>所以這種懶人包已經很夠用了</p>
+<h2>安裝必要套件</h2>
+<p>一開始只需要兩個 package</p>
+<p>如果你不想用 markdown 寫 blog 的話甚至只要裝 pelican 就好</p>
+<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">markdown</span> <span class="n">pelican</span>
+</pre></div>
+
+
+<p>通常中文的 windows 會卡在 pelican 編譯不過</p>
+<p>在我浪費了一個美好的假日下午之後</p>
+<p>終於發現直接 compile source code 才是正解..</p>
+<p>到 <a href="https://github.com/getpelican/pelican">getpelican</a> 下載原始碼然後切到資料夾裡面：</p>
+<div class="highlight"><pre><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+
+
+<h2>blog 資料夾結構</h2>
+<p>先建立一個 <code>blog</code> 資料夾，然後下指令讓 pelican 自動產生其他所需的檔案</p>
+<div class="highlight"><pre>mkdir blog
+<span class="nb">cd </span>blog
+pelican-quickstart
+</pre></div>
+
+
+<p>過程中不清楚的可以先用預設值就好，之後再改</p>
+<p>現在 <code>blog</code> 資料夾底下會有一個 <code>content</code> 放文章原始檔</p>
+<p>另外 <code>output</code> 則是放產生出來的網頁檔</p>
+<h3>linking with github</h3>
+<p>先把 github 的文章 clone 下來：</p>
+<div class="highlight"><pre><span class="nb">cd </span>output
+git clone git@github.com:username/username.github.io.git
+</pre></div>
+
+
+<p>再設定 pelican 輸出到 github 資料夾
+pelicanconf.py add:</p>
+<div class="highlight"><pre><span class="n">OUTPUT_PATH</span> <span class="o">=</span> <span class="s">&#39;output/username.github.io/&#39;</span>
+</pre></div>
+
+
+<p>這樣就把 github 連接好了</p>
+<p>接下來只要在 content 裡面寫一篇 xxx.md 的文章像這樣：</p>
+<div class="highlight"><pre><span class="n">Title</span><span class="o">:</span> <span class="n">My</span> <span class="kd">super</span> <span class="n">title</span>
+<span class="n">Date</span><span class="o">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">03</span> <span class="mi">10</span><span class="o">:</span><span class="mi">20</span>
+<span class="n">Modified</span><span class="o">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">05</span> <span class="mi">19</span><span class="o">:</span><span class="mi">30</span>
+<span class="n">Category</span><span class="o">:</span> <span class="n">Python</span>
+<span class="n">Tags</span><span class="o">:</span> <span class="n">pelican</span><span class="o">,</span> <span class="n">publishing</span>
+<span class="n">Slug</span><span class="o">:</span> <span class="n">my</span><span class="o">-</span><span class="kd">super</span><span class="o">-</span><span class="n">post</span>
+<span class="n">Authors</span><span class="o">:</span> <span class="n">Alexis</span> <span class="n">Metaireau</span><span class="o">,</span> <span class="n">Conan</span> <span class="n">Doyle</span>
+<span class="n">Summary</span><span class="o">:</span> <span class="n">Short</span> <span class="n">version</span> <span class="k">for</span> <span class="n">index</span> <span class="n">and</span> <span class="n">feeds</span>
+
+<span class="n">This</span> <span class="k">is</span> <span class="n">the</span> <span class="n">content</span> <span class="n">of</span> <span class="n">my</span> <span class="kd">super</span> <span class="n">blog</span> <span class="n">post</span><span class="o">.</span>
+</pre></div>
+
+
+<p>在 anaconda command prompt 執行 <code>pelican</code></p>
+<p>然後再 push 到 github 上面</p>
+<p>你的 blog 就會出現在 <code>http://username.github.io/</code> 囉</p>
+<p>（如果用 linux 的話更方便，可以寫在一個 make 裡面）</p>
+<p>到這裡一個基本的 blog 架構就有了，接下來是其他附加的功能</p>
+<h2>安裝主題</h2>
+<p>借用 jsliang 製作的 <a href="http://jsliang.com/blog/2013/02/moving-to-pelican-hosting-on-github-pages.html">pelican-fresh</a></p>
+<p>responsive layout 感覺就很厲害（拼命縮放視窗中）</p>
+<div class="highlight"><pre>git clone https://github.com/jsliang/pelican-fresh.git
+<span class="nb">cd </span>pelican-fresh
+pelican-themes -i pelican-fresh <span class="c"># theme dir name</span>
+</pre></div>
+
+
+<p>再套用設定到</p>
+<p>pelicanconf.py:</p>
+<div class="highlight"><pre><span class="n">THEME</span> <span class="o">=</span> <span class="s">&#39;pelican-fresh&#39;</span>
+</pre></div>
+
+
+<h3>安裝 ShareThis script</h3>
+<ul>
+<li>pelicanconf.py 加上：</li>
+</ul>
+<div class="highlight"><pre><span class="n">SHARETHIS_PUB_KEY</span> <span class="o">=</span> <span class="s">&#39;你的 ShareThis key&#39;</span>
+</pre></div>
+
+
+<ul>
+<li>base.html <code>&lt;head&gt;</code> 裡加上：</li>
+</ul>
+<div class="highlight"><pre><span class="o">&lt;</span><span class="n">script</span> <span class="nb">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="n">src</span><span class="o">=</span><span class="s">&quot;http://w.sharethis.com/button/buttons.js&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">script</span> <span class="nb">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
+    <span class="n">stLight</span><span class="o">.</span><span class="n">options</span><span class="p">({</span>
+        <span class="n">publisher</span><span class="p">:</span> <span class="s">&quot;{{ SHARETHIS_PUB_KEY }}&quot;</span><span class="p">,</span>
+        <span class="n">doNotHash</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="n">doNotCopy</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="n">hashAddressBar</span><span class="p">:</span> <span class="n">false</span>
+    <span class="p">});</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<ul>
+<li>article.html</li>
+</ul>
+<p>在 <code>&lt;div&gt;{{ article.content }}&lt;/div&gt;</code> 之前（或其他想要放的地方）加上：</p>
+<div class="highlight"><pre><span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">SHARETHIS_PUB_KEY</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;sharethis-top&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&#39;st_fblike_hcount&#39;</span> <span class="n">displayText</span><span class="o">=</span><span class="s">&#39;Facebook Like&#39;</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&#39;st_plusone_hcount&#39;</span> <span class="n">displayText</span><span class="o">=</span><span class="s">&#39;Google +1&#39;</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&#39;st_twitter_hcount&#39;</span> <span class="n">displayText</span><span class="o">=</span><span class="s">&#39;Tweet&#39;</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+
+
+<h3>其他主題</h3>
+<p>後來發現還有好多 theme 可以用，大部分也都是 responsive</p>
+<div class="highlight"><pre>git clone https://github.com/getpelican/pelican-themes
+</pre></div>
+
+
+<p>其中 <code>gum</code>, <code>pelican-bootstrap3</code>, <code>tuxlite_tbs</code> 是我比較喜歡的</p>
+<ul>
+<li>gum</li>
+</ul>
+<h2><img alt="gum" src="https://lh5.googleusercontent.com/EXU2DtwuLCyXPOoMo8m4p2fI_h0Geg9UXAptfkwlzA=w600-h614-no" /></h2>
+<ul>
+<li>pelican-bootstrap3</li>
+</ul>
+<h2><img alt="pelican-bootstrap3" src="https://lh5.googleusercontent.com/gGucQ8edPX8euZ6R-xOxfaY98KfwA6ccrPVEJfdzMw=w600-h624-no" /></h2>
+<ul>
+<li>tuxlite_tbs: （目前使用）</li>
+</ul>
+<h2><img alt="tuxlite_tbs" src="https://lh6.googleusercontent.com/Tx_u5u-bRqxIeFSr0lG06XKbiv1jUrIJRMUa59Xw_g=w600-h463-no" /></h2>
+<h2>Disqus</h2>
+<p>有了 disqus 就等於有了跨站的留言系統，非常方便</p>
+<p><a href="https://disqus.com/">Disqus</a></p>
+<p>Admin -&gt; Settings -&gt;Your website's shortname is XXX</p>
+<p>pelicanconf.py:</p>
+<div class="highlight"><pre><span class="n">DISQUS_SITENAME</span> <span class="o">=</span> <span class="s">&#39;shortname&#39;</span>
+</pre></div>
+
+
+<h2>Google Analytics</h2>
+<p>暫時用不到，不過還是先設定好放著</p>
+<p>pelicanconf.py:</p>
+<div class="highlight"><pre><span class="n">GOOGLE_ANALYTICS</span> <span class="o">=</span> <span class="s">&#39;UA-XXXXXXXX-X&#39;</span>
+</pre></div>
+
+
+<h2>Summary plugin</h2>
+<p>到 <a href="https://github.com/getpelican/pelican-plugins">這裡</a> 下載</p>
+<p>在 <code>pelicanconf.py</code> 加入：</p>
+<div class="highlight"><pre><span class="n">PLUGIN_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;pelican-plugins&#39;</span><span class="p">]</span>
+<span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;summary&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>之後文章只要這樣寫就會自動抓出 summary：</p>
+<div class="highlight"><pre><span class="n">Title</span><span class="o">:</span> <span class="n">My</span> <span class="kd">super</span> <span class="n">title</span>
+<span class="n">Date</span><span class="o">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">03</span> <span class="mi">10</span><span class="o">:</span><span class="mi">20</span>
+<span class="n">Tags</span><span class="o">:</span> <span class="n">thats</span><span class="o">,</span> <span class="n">awesome</span>
+<span class="n">Category</span><span class="o">:</span> <span class="n">yeah</span>
+<span class="n">Slug</span><span class="o">:</span> <span class="n">my</span><span class="o">-</span><span class="kd">super</span><span class="o">-</span><span class="n">post</span>
+<span class="n">Author</span><span class="o">:</span> <span class="n">Alexis</span> <span class="n">Metaireau</span>
+
+<span class="n">This</span> <span class="k">is</span> <span class="n">the</span> <span class="n">content</span> <span class="n">of</span> <span class="n">my</span> <span class="kd">super</span> <span class="n">blog</span> <span class="n">post</span><span class="o">.</span>
+<span class="err">＜！－－</span> <span class="n">PELICAN_END_SUMMARY</span> <span class="err">－－＞</span>
+<span class="n">and</span> <span class="k">this</span> <span class="n">content</span> <span class="n">occurs</span> <span class="n">after</span> <span class="n">the</span> <span class="n">summary</span><span class="o">.</span>
+</pre></div></div>
+        <hr />
+    </div>
+		
+<div class="pagination">
+<ul>
+    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+
+    <li class="active"><a href="http://leafwind.github.io/tag/pelican.html">1</a></li>
+
+    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+
+</ul>
+</div>
+ 
+  
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://leafwind.github.io/">Archives</a>
+                <li><a href="http://leafwind.github.io/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://leafwind.github.io/category/internet.html">Internet</a></li>
+                <li><a href="http://leafwind.github.io/category/openpeople.html">OpenPeople</a></li>
+                <li><a href="http://leafwind.github.io/category/tech.html">Tech</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="http://getpelican.com/">Pelican</a></li>
+                <li><a href="http://python.org/">Python.org</a></li>
+            </ul>
+            </div>
+
+
+            <div class="social">
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Social
+                </li>
+           
+                <li><a href="#">Social Link - TBD</a></li>
+            </ul>
+            </div>
+            </div>
+
+        </div>  
+    </div>     </div> 
 <footer>
-   <div class="container">
-      <hr>
-      <div class="row">
-         <div class="col-xs-10">&copy; 2014 leafwind
-            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
-            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
-         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
-      </div>
-   </div>
+<br />
+<p><a href="http://leafwind.github.io">LeafHub</a> &copy; leafwind 2012</p>
 </footer>
-<script src="http://leafwind.github.io/theme/js/jquery.min.js"></script>
 
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="http://leafwind.github.io/theme/js/bootstrap.min.js"></script>
-
-<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="http://leafwind.github.io/theme/js/respond.min.js"></script>
-
-    <!-- Disqus -->
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'leafhub'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function () {
-            var s = document.createElement('script');
-            s.async = true;
-            s.type = 'text/javascript';
-            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-        }());
-    </script>
-    <!-- End Disqus Code -->
-    <!-- Google Analytics -->
-    <script type="text/javascript">
-
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-13020973-3']);
-        _gaq.push(['_trackPageview']);
-
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
-    <!-- End Google Analytics Code -->
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
+<script>var _gaq=[['_setAccount','UA-13020973-3'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+ 
 </body>
 </html>
