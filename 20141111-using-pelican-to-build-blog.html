@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="leafwind">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://lh4.googleusercontent.com/-Vllk1pyfLEY/VGi97EW0A1I/AAAAAAAAAKI/OMEB61M_Ntg/s128-no/hub-128.png"/>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -303,7 +304,8 @@ pelican-themes -i pelican-fresh <span class="c"># theme dir name</span>
 <p>由於每次寫文章都要手動新增 metadata 很麻煩</p>
 <p>jsliang 也做了一個套件叫 <a href="https://github.com/jsliang/sublime-pelican">sublime-pelican</a></p>
 <p>這樣可以讓新增文章的過程更便利</p>
-<h2>網頁標題設定</h2>
+<h2>網頁樣板(template)設定</h2>
+<h3>title</h3>
 <p>有些主題預設不會把文章標題放在視窗標題，也就是 <code>&lt;title&gt;</code> 標籤</p>
 <p>首先到 theme 的 <code>base.html</code> 裡面找到這行</p>
 <div class="highlight"><pre><span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">windowtitle</span> <span class="o">%</span><span class="p">}{{</span> <span class="n">SITENAME</span> <span class="p">}}{</span><span class="o">%</span> <span class="n">endblock</span> <span class="o">%</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
@@ -315,6 +317,12 @@ pelican-themes -i pelican-fresh <span class="c"># theme dir name</span>
 <div class="highlight"><pre><span class="p">{</span><span class="o">%</span> <span class="n">extends</span> <span class="s">&quot;base.html&quot;</span> <span class="o">%</span><span class="p">}</span>
 <span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">windowtitle</span> <span class="o">%</span><span class="p">}{{</span> <span class="n">article</span><span class="o">.</span><span class="n">title</span><span class="o">|</span><span class="n">striptags</span> <span class="p">}}</span> <span class="o">-</span> <span class="p">{{</span> <span class="n">SITENAME</span> <span class="p">}}{</span><span class="o">%</span> <span class="n">endblock</span> <span class="o">%</span><span class="p">}</span>
 <span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">content</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+
+
+<h3>short icon</h3>
+<p><code>base.html</code> 裡面找到 <code>&lt;head&gt;</code> 加入：</p>
+<div class="highlight"><pre><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;shortcut icon&quot;</span> <span class="na">href=</span><span class="s">&quot;http://launchyard.com/images/favicon.png&quot;</span><span class="nt">/&gt;</span>
 </pre></div></div>
 	
         <hr>
