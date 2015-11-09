@@ -94,38 +94,59 @@ by <a class="url fn" href="http://leafwind.github.io/author/leafwind.html">leafw
 <p>這篇只是記錄一下我的安裝過程
 </p>
 <h2>why pelican?</h2>
+<p>pelican 是一個網站內容產生工具，他的功能有：</p>
+<ul>
+<li>可以支援用 reStructuredText, Markdown, or AsciiDoc 等格式寫作</li>
+<li>產生完全靜態的頁面，可以放到任何空間</li>
+<li>佈景可以自訂（網路上也有很多樣板可以套用）</li>
+<li>支援 Atom/RSS feeds</li>
+<li>程式/語法 highlighting</li>
+<li>模組化的外掛系統以及外掛 repository 可供使用</li>
+<li>還有很多 feature...</li>
+</ul>
+<p>缺點：</p>
+<ul>
+<li>
+<p>過程中可能需要一點程式門檻 debug，但建置完環境之後就不需要</p>
+</li>
+<li>
+<p>對前端技術不熟的話，無法刻出像其他服務一樣 fancy 的介面，但至少比只能用內建主題的 logdown 比強大得多</p>
+</li>
+</ul>
+<h2>why markdown?</h2>
 <p>對 coding 習慣的宅宅來說</p>
 <p>使用 python / markdown / github 這些工具跟吃飯一樣</p>
 <p>很多時候只是要記錄一些事情</p>
 <p>但如果你想把有 code 的筆記貼到一般部落格服務</p>
-<p>那不是~~腦袋有問題~~不知道有其他工具就是~~時間太多~~耐心過於常人</p>
+<p>那不是<s>腦袋有問題</s>不知道有其他工具就是<s>時間太多</s>耐心過於常人</p>
 <p>html 很簡單但排版非常費工</p>
-<p>makrdown 更簡單同時不需要浪費生命在不必要的排版上</p>
-<p>並且支援許多程式語法</p>
+<p>makrdown 只需要記比 html 還要少的語法，卻能大大提昇排版準確度</p>
+<p><b>生命，就不應該浪費在不必要的排版上</b></p>
+<p>並且支援嵌入許多程式語法</p>
 <hr />
 <p>另一個好處是 markdown 本身就是原始碼</p>
 <p>不像 html 備份的時候會遇到一大堆格式轉換問題</p>
-<p>（雖然小問題也是會有）</p>
-<p>但基本上把文章備份在 dropbox 之類的地方完全不會怕哪天服務倒閉</p>
-<p>唯一美中不足的是，如果你對前端技術不熟</p>
-<p>那可能沒辦法刻出像 pixnet 之類的服務一樣很 fancy 的介面</p>
-<p>但換個角度想，pelican theme 蠻多是開放分享而且有在更新的</p>
-<p>跟只能用內建主題的 logdown 比起來還強大得多</p>
-<p>那就從第一步開始吧：</p>
+<p>（只有偶爾會有小問題）</p>
+<p>但基本上把文章備份在 dropbox 之類的地方</p>
+<p>完全不會怕哪天服務倒閉</p>
+<p>那就從第一步開始吧！</p>
 <h2>python environment</h2>
 <p>首先要有一個 python 環境</p>
-<p>在 linux 上有 python 是天經地義</p>
-<p>windows 的話推薦裝 <a href="https://store.continuum.io/cshop/anaconda/">anaconda</a></p>
+<h3>linux:</h3>
+<p>不要跟我說你沒有 python，自己想辦法</p>
+<h3>windows:</h3>
+<p>推薦裝 <a href="https://store.continuum.io/cshop/anaconda/">anaconda</a></p>
 <p>只要下載整個執行檔裝完就有 iPython / pip 等等環境，也不用設 path</p>
-<p>我想應該很少有人在 windows 上開發 python 程式</p>
-<p>所以這種懶人包已經很夠用了</p>
-<h2>安裝必要套件</h2>
+<p>對於不常在 windows 上開發 python 程式的使用者來說</p>
+<p>這種懶人包已經很夠用了</p>
+<h2>安裝 python 必要套件</h2>
 <p>一開始只需要兩個 package</p>
 <p>如果你不想用 markdown 寫 blog 的話甚至只要裝 pelican 就好</p>
 <div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">markdown</span> <span class="n">pelican</span>
 </pre></div>
 
 
+<h3>隨機支線任務：</h3>
 <p>通常中文的 windows 會卡在 pelican 編譯不過</p>
 <p>在我浪費了一個美好的假日下午之後</p>
 <p>終於發現直接 compile source code 才是正解..</p>
@@ -136,8 +157,7 @@ by <a class="url fn" href="http://leafwind.github.io/author/leafwind.html">leafw
 
 <h2>blog 資料夾結構</h2>
 <p>先建立一個 <code>blog</code> 資料夾，然後下指令讓 pelican 自動產生其他所需的檔案</p>
-<div class="highlight"><pre>mkdir blog
-<span class="nb">cd </span>blog
+<div class="highlight"><pre>mkdir blog<span class="p">;</span> <span class="nb">cd </span>blog
 pelican-quickstart
 </pre></div>
 
@@ -159,7 +179,7 @@ pelicanconf.py add:</p>
 
 
 <p>這樣就把 github 連接好了</p>
-<p>接下來只要在 content 裡面寫一篇 xxx.md 的文章像這樣：</p>
+<p>接下來只要在 content 裡面寫一篇 xxx.md 的文章：</p>
 <div class="highlight"><pre><span class="n">Title</span><span class="o">:</span> <span class="n">My</span> <span class="kd">super</span> <span class="n">title</span>
 <span class="n">Date</span><span class="o">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">03</span> <span class="mi">10</span><span class="o">:</span><span class="mi">20</span>
 <span class="n">Modified</span><span class="o">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">05</span> <span class="mi">19</span><span class="o">:</span><span class="mi">30</span>
@@ -176,7 +196,7 @@ pelicanconf.py add:</p>
 <p>在 anaconda command prompt 執行 <code>pelican</code></p>
 <p>然後再 push 到 github 上面</p>
 <p>你的 blog 就會出現在 <code>http://username.github.io/</code> 囉</p>
-<p>（如果用 linux 的話更方便，可以寫在一個 make 裡面）</p>
+<p>（如果用 linux 的話更方便，可以寫在一個 makefile 裡面）</p>
 <p>到這裡一個基本的 blog 架構就有了，接下來是其他附加的功能</p>
 <h2>安裝主題</h2>
 <p>借用 jsliang 製作的 <a href="http://jsliang.com/blog/2013/02/moving-to-pelican-hosting-on-github-pages.html">pelican-fresh</a></p>
@@ -300,10 +320,21 @@ pelican-themes -i pelican-fresh <span class="c"># theme dir name</span>
 
 
 <p>就會把夾在中間的文字自動當做 summary，非常好用</p>
+<h2>Google adsense</h2>
+<p>這其實跟 pelican 功能無關，但既然是架站就順便一下</p>
+<p>通常在任何 theme 的 <code>templates/base.html</code></p>
+<p>裡面加上你的 adsense 程式碼即可</p>
+<p>譬如我要加在側邊欄，就加到 nav-list object 裡面</p>
 <h2>Sublime Plugin</h2>
 <p>由於每次寫文章都要手動新增 metadata 很麻煩</p>
 <p>jsliang 也做了一個套件叫 <a href="https://github.com/jsliang/sublime-pelican">sublime-pelican</a></p>
 <p>這樣可以讓新增文章的過程更便利</p>
+<h2>一個好用的編輯器</h2>
+<p>markdown 好用歸好用</p>
+<p>但還是需要一個所見即所得的編輯器</p>
+<p>在 mac 可以使用 macdown，這樣會輕鬆許多</p>
+<p>另外語法部分可以參考：</p>
+<p>[makrdown syntax for pelican] (http://sourceforge.net/p/pelican-edt/wiki/markdown_syntax/)</p>
 <h2>網頁樣板(template)設定</h2>
 <h3>title</h3>
 <p>有些主題預設不會把文章標題放在視窗標題，也就是 <code>&lt;title&gt;</code> 標籤</p>
@@ -399,16 +430,17 @@ pelican-themes -i pelican-fresh <span class="c"># theme dir name</span>
             </ul>
             </div>
             </div>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- leafhub -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2673596548278548"
-     data-ad-slot="4677126217"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- leafhub -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-2673596548278548"
+                 data-ad-slot="4677126217"
+                 data-ad-format="auto"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
 
         </div>  
     </div>     </div> 

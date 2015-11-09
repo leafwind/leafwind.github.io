@@ -2,7 +2,7 @@
 <html lang="tw">
 <head>
     <meta charset="utf-8">
-    <title>LeafHub</title>
+    <title>整個世界都是KPI：(3) 資料工程師的 KPI 窘境 - LeafHub</title>
     <meta name="description" content="">
     <meta name="author" content="leafwind">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,24 +63,87 @@
     <div class="row">
 
         <div class="span9">
-        
-
-        
-
-
     <div class='article'>
         <div class="content-title">
-            <a href="http://leafwind.github.io/20150615-KPI-3-the-dilemma-of-data-engineers.html"><h1>整個世界都是KPI：(3) 資料工程師的 KPI 窘境</h1></a>
+            <h1>整個世界都是KPI：(3) 資料工程師的 KPI 窘境</h1>
 一 15 6月 2015
 
 by <a class="url fn" href="http://leafwind.github.io/author/leafwind.html">leafwind</a>
  
 
 
- 
         </div>
-        
-        <div class="summary">
+	
+        <div class="sharethis-top">
+            <span class='st_fblike_hcount' displayText='Facebook Like'></span>
+            <span class='st_plusone_hcount' displayText='Google +1'></span>
+            <span class='st_twitter_hcount' displayText='Tweet'></span>
+        </div>
+
+        <div><h2>資料工程師</h2>
+<p>純粹的資料科學家(data scientist)或資料分析師(data analysist)</p>
+<p>通常需要精通以下其中一種，並同時熟悉兩種以上</p>
+<ul>
+<li>
+<p>統計</p>
+</li>
+<li>
+<p>電腦科學(Machine Learning, coding)</p>
+</li>
+<li>
+<p>domain knowledge</p>
+</li>
+</ul>
+<p>而台灣很少有人符合這個嚴苛的定義</p>
+<p>因為這樣偏研究類型的工作並不能直接增加公司營收或利潤</p>
+<p>尤其是小規模的軟體新創公司</p>
+<p>就算有所謂 data scientist 的職缺</p>
+<p>多數都還是像我這種身兼研究、開發、跨部門協調的打雜工程師</p>
+<p>在這樣的環境裡，就不太能像國外一樣，有些公司甚至分工細膩到不用負責產品端</p>
+<p>因為個人打雜太多了</p>
+<p>以下就統稱資料<s>黑手</s>...工程師</p>
+<h2>what the fxck are we doing?</h2>
+<p>如上述所說，這類工作的定位其實蠻尷尬的</p>
+<p>專長其實在研究，但目標卻是產品導向</p>
+<p>人手不夠的時候通常是一條龍通包</p>
+<p>就算沒有通包也必須了解整個系統的運作</p>
+<p>舉例來說：</p>
+<h3>資料平台的 infrastructure</h3>
+<p>雖然不是我建立的，但我使用到裡面非常多資料</p>
+<p>因為本身是使用者，常常有新功能的需求</p>
+<p>更動平台的 feature 需要完善的規劃</p>
+<p>（即使這個 cycle 在我們公司已經很很短）</p>
+<p>當有緊急的需求時</p>
+<p>等不到 UDF 可能要自己先生一個再 push 上去</p>
+<p>或者臨時建 cache table 應付 ETL 的需求</p>
+<h3>系統穩定度、scalability、costdown</h3>
+<p>這些原本就跟演算法有關的層面更要小心</p>
+<p>因為我的程式一旦 deploy 就會影響到整個公司</p>
+<p>緊急的 case 天天有</p>
+<p>當一個功能是為了救火，時間上不允許作完善測試再上線的時候</p>
+<p>就要事先想好哪些地方可能風險比較高，一旦出事馬上 rollback</p>
+<h3>演算法</h3>
+<p>擁有最高度不確定性的，就是這一項</p>
+<p>不管資料是不是大數據，或者是不是用了機器學習的 model</p>
+<p>當你的成效到了一個瓶頸，就要花十倍甚至百倍的力氣去改善 model</p>
+<p>對資料工程師來說，選擇永遠有太多種</p>
+<p>一個好的、有經驗的資料工程師可以將選項、參數</p>
+<p>縮減到別人的十分之一、百分之一</p>
+<p>但是仍然需要時間去嘗試各種假設與實驗</p>
+<p>然而新創公司就像一枚火箭，必須訂立一個不太容易卻又有點希望的目標</p>
+<p>每個人都有自己所謂的 KPI</p>
+<p>身為資料工程師，實在很難說出：</p>
+<h3>「好，這個禮拜的目標是增加預測準確度 50%」</h3>
+<p>這種話</p>
+<p>就好像牛頓說：這個月的目標就是想出萬有引力定理</p>
+<p>或是愛因斯坦說：今年必須想一個打破現有常識的理論</p>
+<p>說的少了，你無法做出對公司確實產生影響力的 project</p>
+<p>說的多了，只會覺得愚蠢而已</p>
+<p>最令人不舒服的是，能達成多少目標</p>
+<p>只有經歷過「分析數據、提出假設、實驗、上線」一整串過程才知道</p>
+<p>而這過程很可能會是白費的</p>
+<p>是要經過嘗試很多次失敗才有機會得到好結果的</p>
+
 
 <p>不像其他的程式工作，相對較能預期結果產出</p>
 <p>有 spec、有類似的 implementation</p>
@@ -99,83 +162,24 @@ by <a class="url fn" href="http://leafwind.github.io/author/leafwind.html">leafw
 <p>如果你要短時間就看到成效，那通常就會犧牲掉遠見</p>
 <p>新創必須同時兼顧短期 KPI 與長期技術影響力</p>
 <p>這中間的拿捏永遠都是個難題</p>
- <a class="btn btn-info xsmall" href="http://leafwind.github.io/20150615-KPI-3-the-dilemma-of-data-engineers.html">read more</a></div>
-        <hr />
-    </div>
-		
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://leafwind.github.io/20150612-KPI-2-the-more-valuable-things-the-much-rethinking.html"><h2>整個世界都是KPI：(2) 越是有價值的事情，就越應該從頭思考 KPI</h2></a>
-        <div class= "well small"> 五 12 6月 2015
-
-by <a class="url fn" href="http://leafwind.github.io/author/leafwind.html">leafwind</a>
- 
-
-
- </div>
-        <div class="summary">
-
-<h2>整個國家從上到下都愛看表面數字</h2>
-<p>既然政府機關需要跟人民交代績效</p>
-<p>人民愛看什麼，政府就會往哪邊去靠攏</p>
-<p>就跟股東愛看什麼，企業就會往那邊去靠攏一樣</p>
-<h3></h3>
-<p>在台灣，越有價值、有意義的事情，通常與錢相去越遠</p>
-<p>短視近利、貪小便宜，是長久以來的陋習</p>
-<p>這是工業、甚至農業社會思維的遺毒，想法仍然停留在成本與報酬呈「線性」的思考模式</p>
-<p>明明我們的生活水準早就不需要擔心下一餐，甚至多年後的每一餐</p>
-<p>但人們仍然不願意付出短暫的虧損以獲取長期的獲利</p>
-<p>「只要現在有賺就好」、「只要我有賺就好」的想法根深蒂固</p>
- <a class="btn btn-info xsmall" href="http://leafwind.github.io/20150612-KPI-2-the-more-valuable-things-the-much-rethinking.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://leafwind.github.io/20150612-KPI-1-KPI-in-enterprise.html"><h2>整個世界都是KPI：(1) 企業的KPI</h2></a>
-        <div class= "well small"> 五 12 6月 2015
-
-by <a class="url fn" href="http://leafwind.github.io/author/leafwind.html">leafwind</a>
- 
-
-
- </div>
-        <div class="summary">
-
-<p>年資往往是績效好壞的依據，養成整個社會倚老賣老的氛圍</p>
-<p>個人對這種「熬過去就輪到你」的想法頗不以為然</p>
-<p>憑什麼用年紀或到職順序決定一個人的價值？做得久不代表就會累積有用的經驗</p>
-<p>這是台灣慣於人治的展現，人情跟關係遠大於貢獻，是整個社會的弊病</p>
-<h2>完全以績效考量的功利主義 KPI</h2>
-<p><img alt="KPI" src="http://www.customsoftwarebypreston.com/wp-content/uploads/2010/10/key-performance-indicators.jpg" /></p>
-<p>然而整個組織都盡所有可能地量化績效，完全看數字論功行賞，就一定沒有副作用？</p>
-<p>我們知道世界上有太多東西無法簡單有效地量化，或者說量化的成本太高</p>
-<p>並且，KPI 是直接呈現「結果」的指標，所謂績效就是只問結果，不看過程</p>
-<p>因此凡事只看 KPI（特別是短期的 KPI），容易落入結果論的窠臼
- <a class="btn btn-info xsmall" href="http://leafwind.github.io/20150612-KPI-1-KPI-in-enterprise.html">read more</a></div>
-    </div>	
-				
-<div class="pagination">
-<ul>
-    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
-
-    <li class="active"><a href="http://leafwind.github.io/tag/kpi.html">1</a></li>
-
-    <li class="next disabled"><a href="#">&rarr; Next</a></li>
-
-</ul>
 </div>
- 
-  
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'leafhub'; 
+    var disqus_title = '整個世界都是KPI：(3) 資料工程師的 KPI 窘境';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
         </div>
         
         <div class="span3">
