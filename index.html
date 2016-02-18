@@ -71,8 +71,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://leafwind.tw/20160118-greensdparty.html"><h1>綠社盟：理想與現實</h1></a>
-二 19 1月 2016
+            <a href="http://leafwind.tw/20160219-release-python-memory-by-sub-process.html"><h1>解決 python 在讀取 .json 檔案時佔用記憶體過多的問題</h1></a>
+五 19 2月 2016
 
 by <a class="url fn" href="http://leafwind.tw/author/leafwind.html">leafwind</a>
  
@@ -81,6 +81,37 @@ by <a class="url fn" href="http://leafwind.tw/author/leafwind.html">leafwind</a>
  
         </div>
         
+        <div class="summary"><h2>故事是這樣的</h2>
+<p>某天我發現原本執行都沒有問題的程式突然掛了</p>
+<p>仔細一查發現是記憶體使用過多，因為有別人的程式需要資源，跑到一半就被 OS 給砍了</p>
+<p>（題外話，砍的優先順序包括你的程式跑了多久、吃多少記憶體等等一堆參數）</p>
+<p>而我心中以為，某些用不到的 object reference 在 function return 之後就會釋放</p>
+<p>顯然並沒有</p>
+<p>於是先找了一些方法像是 <code>del</code> 或 <code>gc.collect()</code> 試圖手動釋放記憶體</p>
+<p>但實驗證實也完全沒有用</p>
+<p>最後找到一篇文章 (1)</p>
+<h4>python 要釋放指定的 object 所佔用的 memory 原來要用到 sub-process</h4>
+<p>著實讓我驚呆了，特此紀念解決的過程：</p>
+<h2>問題開始</h2>
+<p>給定一個 <code>.json</code> file，經過 <code>json.load()</code> 或 <code>json.loads()</code> 讀取為 object 之後 ...</p> <a class="btn btn-info xsmall" href="http://leafwind.tw/20160219-release-python-memory-by-sub-process.html">read more</a></div>
+        <hr />
+    </div>
+		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://leafwind.tw/20160118-greensdparty.html"><h2>綠社盟：理想與現實</h2></a>
+        <div class= "well small"> 二 19 1月 2016
+
+by <a class="url fn" href="http://leafwind.tw/author/leafwind.html">leafwind</a>
+ 
+
+
+ </div>
         <div class="summary"><p>身為一個689s，大選完多少還沉浸在一些喜悅中</p>
 <p>畢竟台灣第一次能翻轉立法院，著實不容易</p>
 <p>前兩天對於綠社盟連補助款門檻都沒過，只覺有些可惜</p>
@@ -96,9 +127,8 @@ by <a class="url fn" href="http://leafwind.tw/author/leafwind.html">leafwind</a>
 </blockquote>
 <hr />
 <p>范 ...</p> <a class="btn btn-info xsmall" href="http://leafwind.tw/20160118-greensdparty.html">read more</a></div>
-        <hr />
-    </div>
-		
+    </div>	
+				
 
  
         
@@ -372,7 +402,7 @@ by <a class="url fn" href="http://leafwind.tw/author/leafwind.html">leafwind</a>
             <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
             <ul class="nav nav-list">
                 <li class="nav-header"> 
-                site view: 717
+                site view: 724
                 </li>
             </ul>
             </div>
@@ -402,6 +432,7 @@ by <a class="url fn" href="http://leafwind.tw/author/leafwind.html">leafwind</a>
                 <li><a href="http://leafwind.tw/category/comment.html">Comment</a></li>
                 <li><a href="http://leafwind.tw/category/internet.html">Internet</a></li>
                 <li><a href="http://leafwind.tw/category/tech.html">Tech</a></li>
+                <li><a href="http://leafwind.tw/category/technote.html">TechNote</a></li>
                 <li><a href="http://leafwind.tw/category/thinking.html">Thinking</a></li>
                    
             </ul>
