@@ -71,7 +71,7 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://leafwind.tw/20160219-release-python-memory-by-sub-process.html"><h1>解決 python 在讀取 .json 檔案時佔用記憶體過多的問題</h1></a>
+            <a href="http://leafwind.tw/20160219-set-custom-domain-for-github-pages.html"><h1>設定自定域名到 Github Pages</h1></a>
 五 19 2月 2016
 
 by <a class="url fn" href="http://leafwind.tw/author/leafwind.html">leafwind</a>
@@ -81,6 +81,37 @@ by <a class="url fn" href="http://leafwind.tw/author/leafwind.html">leafwind</a>
  
         </div>
         
+        <div class="summary"><p>這東西的教學其實很基礎而且到處都有</p>
+<p>但我居然鬼打牆了好幾天才設定完成</p>
+<p>追根究柢，除了自己設定天兵之外</p>
+<p>我發現大家都花篇幅在解釋 DNS 的運作原理</p>
+<p>但每個設定步驟與背後 DNS 原理的關係卻含糊帶過，甚至誤導的都有..</p>
+<p>於是手癢還是自己記一下好了..</p>
+<h2>兩個步驟</h2>
+<p>Github Pages 會提供每個使用者一個 domain name 叫做 <code>username.github.io</code></p>
+<p>而假設我買了一個 <code>leafwind.tw</code> 的 domain name</p>
+<p>那要把 <code>leafwind.github.io</code> 替換成 <code>leafwind.tw</code> 就要做兩件事：</p>
+<h2>目標一</h2>
+<p>把買來的 <code>leafwind.tw</code> 對應到 github server 的 IP，讓瀏覽器看到這個網址去問 github server</p>
+<h3>作法：新增兩筆 ...</h3> <a class="btn btn-info xsmall" href="http://leafwind.tw/20160219-set-custom-domain-for-github-pages.html">read more</a></div>
+        <hr />
+    </div>
+		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://leafwind.tw/20160219-release-python-memory-by-sub-process.html"><h2>解決 python 在讀取 .json 檔案時佔用記憶體過多的問題</h2></a>
+        <div class= "well small"> 五 19 2月 2016
+
+by <a class="url fn" href="http://leafwind.tw/author/leafwind.html">leafwind</a>
+ 
+
+
+ </div>
         <div class="summary"><h2>故事是這樣的</h2>
 <p>某天我發現原本執行都沒有問題的程式突然掛了</p>
 <p>仔細一查發現是記憶體使用過多，因為有別人的程式需要資源，跑到一半就被 OS 給砍了</p>
@@ -94,9 +125,8 @@ by <a class="url fn" href="http://leafwind.tw/author/leafwind.html">leafwind</a>
 <p>著實讓我驚呆了，特此紀念解決的過程：</p>
 <h2>問題開始</h2>
 <p>給定一個 <code>.json</code> file，經過 <code>json.load()</code> 或 <code>json.loads()</code> 讀取為 object 之後 ...</p> <a class="btn btn-info xsmall" href="http://leafwind.tw/20160219-release-python-memory-by-sub-process.html">read more</a></div>
-        <hr />
-    </div>
-		
+    </div>	
+				
 
  
         
@@ -145,7 +175,7 @@ by <a class="url fn" href="http://leafwind.tw/author/leafwind.html">leafwind</a>
             <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
             <ul class="nav nav-list">
                 <li class="nav-header"> 
-                site view: 726
+                site view: 733
                 </li>
             </ul>
             </div>

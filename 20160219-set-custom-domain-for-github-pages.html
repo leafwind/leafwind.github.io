@@ -2,7 +2,7 @@
 <html lang="tw">
 <head>
     <meta charset="utf-8">
-    <title>LeafHub</title>
+    <title>設定自定域名到 Github Pages - LeafHub</title>
     <meta name="description" content="">
     <meta name="author" content="leafwind">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,51 +64,78 @@
     <div class="row">
 
         <div class="span9">
-        
-
-        
-
-
     <div class='article'>
         <div class="content-title">
-            <a href="http://leafwind.tw/20141111-using-pelican-to-build-blog.html"><h1>用 pelican + github 建立完全免費的 blog</h1></a>
-二 11 11月 2014
+            <h1>設定自定域名到 Github Pages</h1>
+五 19 2月 2016
 
 by <a class="url fn" href="http://leafwind.tw/author/leafwind.html">leafwind</a>
  
 
 
- 
         </div>
-        
-        <div class="summary">
+	
+        <div class="sharethis-top">
+            <span class='st_fblike_hcount' displayText='Facebook Like'></span>
+            <span class='st_plusone_hcount' displayText='Google +1'></span>
+            <span class='st_twitter_hcount' displayText='Tweet'></span>
+            <span> PV:0 </span>
+        </div>
 
-<p><img alt="python" src="https://lh5.googleusercontent.com/-Ohlo1KgsThU/VGJDLznI91I/AAAAAAAAAEM/xCvsvmiqziU/s128-no/Python_logo%5B1%5D.png" /><img alt="pelican-image" src="https://lh5.googleusercontent.com/u7NWKmcEDaTNBJHYSH6xEcLSki7-TC7zaIhlZctkDA=s200-no" /><img alt="github" src="https://lh5.googleusercontent.com/-DKPyRhwsZNI/VGJDokSPLLI/AAAAAAAAAEo/5yQN2duKHJM/s256-no/github%5B1%5D.png" /></p>
-<p>自從用了 logdown 之後，就非常喜歡 markdown 的寫作方式</p>
-<p>html 實在不是給人寫的，那種事情給機器自動產生就好了</p>
-<p>但 logdown 畢竟還是別人 host 的服務，功能就相對侷限</p>
-<p>在原本我最愛的「拖拉上傳圖片」功能也變成付費之後</p>
-<p>便開始找新的替代方案</p>
+        <div><p>這東西的教學其實很基礎而且到處都有</p>
+<p>但我居然鬼打牆了好幾天才設定完成</p>
+<p>追根究柢，除了自己設定天兵之外</p>
+<p>我發現大家都花篇幅在解釋 DNS 的運作原理</p>
+<p>但每個設定步驟與背後 DNS 原理的關係卻含糊帶過，甚至誤導的都有..</p>
+<p>於是手癢還是自己記一下好了..</p>
+<h2>兩個步驟</h2>
+<p>Github Pages 會提供每個使用者一個 domain name 叫做 <code>username.github.io</code></p>
+<p>而假設我買了一個 <code>leafwind.tw</code> 的 domain name</p>
+<p>那要把 <code>leafwind.github.io</code> 替換成 <code>leafwind.tw</code> 就要做兩件事：</p>
+<h2>目標一</h2>
+<p>把買來的 <code>leafwind.tw</code> 對應到 github server 的 IP，讓瀏覽器看到這個網址去問 github server</p>
+<h3>作法：新增兩筆 A record 到你的 DNS 設定檔</h3>
+<p>這個設定可以是放在 domain 的供應商，也可以是另外的 DNS server</p>
+<div class="highlight"><pre>Name Type Value
+@    A    192.30.252.153
+@    A    192.30.252.154
+</pre></div>
+
+
+<p>可以想像是 <code>leafwind.tw</code> =&gt; <code>192.30.252.153</code> 的關係</p>
+<p>（若是 subdomain 則建議用 <code>CNAME</code> record）</p>
+<h2>目標二</h2>
+<p>讓 github server 知道當它被問的時候，是哪一個 repo. 要對應到 <code>leafwind.tw</code></p>
+<h3>作法：新增 <code>CNAME</code> 檔案到你的 repo.</h3>
+<p>檔案內容為一行</p>
+<div class="highlight"><pre>leafwind.tw
+</pre></div>
+
+
+<p>現在示意圖變成 <code>leafwind.tw</code> =&gt; <code>192.30.252.153</code> =&gt; <code>leafwind.github.io</code></p>
+<p>這裡的箭頭是指網頁內容，並不是真的轉址，網址仍然是 <code>leafwind.tw</code></p>
 <hr />
-<p>其實 pelican + github 也不是什麼新的組合</p>
-<p>google 一下就有很多文章教你怎麼裝</p>
-<p>這篇只是記錄一下我的安裝過程
- <a class="btn btn-info xsmall" href="http://leafwind.tw/20141111-using-pelican-to-build-blog.html">read more</a></div>
-        <hr />
+<p>而其實新增這個 <code>CNAME</code> 檔案還有另一個功能</p>
+<p>就是當你輸入 <code>leafwind.github.io</code> 的時候，會自動轉址到 <code>leafwind.tw</code></p>
+<p>（<code>CNAME</code> 的 C 就是 Canonical 的意思）</p>
+<p>[1.] <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/">setting-up-a-custom-domain-with-github-pages/</a></p></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'leafhub'; 
+    var disqus_title = '設定自定域名到 Github Pages';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
-		
-<div class="pagination">
-<ul>
-    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
-
-    <li class="active"><a href="http://leafwind.tw/tag/github.html">1</a></li>
-
-    <li class="next disabled"><a href="#">&rarr; Next</a></li>
-
-</ul>
-</div>
- 
-  
         </div>
         
         <div class="span3">

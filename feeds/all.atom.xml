@@ -1,5 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>LeafHub</title><link href="http://leafwind.tw/" rel="alternate"></link><link href="http://leafwind.tw/feeds/all.atom.xml" rel="self"></link><id>http://leafwind.tw/</id><updated>2016-02-19T00:00:00+08:00</updated><entry><title>解決 python 在讀取 .json 檔案時佔用記憶體過多的問題</title><link href="http://leafwind.tw/20160219-release-python-memory-by-sub-process.html" rel="alternate"></link><updated>2016-02-19T00:00:00+08:00</updated><author><name>leafwind</name></author><id>tag:leafwind.tw,2016-02-19:20160219-release-python-memory-by-sub-process.html</id><summary type="html">&lt;h2&gt;故事是這樣的&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>LeafHub</title><link href="http://leafwind.tw/" rel="alternate"></link><link href="http://leafwind.tw/feeds/all.atom.xml" rel="self"></link><id>http://leafwind.tw/</id><updated>2016-02-19T00:58:00+08:00</updated><entry><title>設定自定域名到 Github Pages</title><link href="http://leafwind.tw/20160219-set-custom-domain-for-github-pages.html" rel="alternate"></link><updated>2016-02-19T00:58:00+08:00</updated><author><name>leafwind</name></author><id>tag:leafwind.tw,2016-02-19:20160219-set-custom-domain-for-github-pages.html</id><summary type="html">&lt;p&gt;這東西的教學其實很基礎而且到處都有&lt;/p&gt;
+&lt;p&gt;但我居然鬼打牆了好幾天才設定完成&lt;/p&gt;
+&lt;p&gt;追根究柢，除了自己設定天兵之外&lt;/p&gt;
+&lt;p&gt;我發現大家都花篇幅在解釋 DNS 的運作原理&lt;/p&gt;
+&lt;p&gt;但每個設定步驟與背後 DNS 原理的關係卻含糊帶過，甚至誤導的都有..&lt;/p&gt;
+&lt;p&gt;於是手癢還是自己記一下好了..&lt;/p&gt;
+&lt;h2&gt;兩個步驟&lt;/h2&gt;
+&lt;p&gt;Github Pages 會提供每個使用者一個 domain name 叫做 &lt;code&gt;username.github.io&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;而假設我買了一個 &lt;code&gt;leafwind.tw&lt;/code&gt; 的 domain name&lt;/p&gt;
+&lt;p&gt;那要把 &lt;code&gt;leafwind.github.io&lt;/code&gt; 替換成 &lt;code&gt;leafwind.tw&lt;/code&gt; 就要做兩件事：&lt;/p&gt;
+&lt;h2&gt;目標一&lt;/h2&gt;
+&lt;p&gt;把買來的 &lt;code&gt;leafwind.tw&lt;/code&gt; 對應到 github server 的 IP，讓瀏覽器看到這個網址去問 github server&lt;/p&gt;
+&lt;h3&gt;作法：新增兩筆 A record 到你的 DNS 設定檔&lt;/h3&gt;
+&lt;p&gt;這個設定可以是放在 domain 的供應商，也可以是另外的 DNS server&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Name Type Value
+@    A    192.30.252.153
+@    A    192.30.252.154
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;可以想像是 &lt;code&gt;leafwind.tw&lt;/code&gt; =&amp;gt; &lt;code&gt;192.30.252.153&lt;/code&gt; 的關係&lt;/p&gt;
+&lt;p&gt;（若是 subdomain 則建議用 &lt;code&gt;CNAME&lt;/code&gt; record）&lt;/p&gt;
+&lt;h2&gt;目標二&lt;/h2&gt;
+&lt;p&gt;讓 github server 知道當它被問的時候，是哪一個 repo. 要對應到 &lt;code&gt;leafwind.tw&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;作法：新增 &lt;code&gt;CNAME&lt;/code&gt; 檔案到你的 repo.&lt;/h3&gt;
+&lt;p&gt;檔案內容為一行&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;leafwind.tw
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;現在示意圖變成 &lt;code&gt;leafwind.tw&lt;/code&gt; =&amp;gt; &lt;code&gt;192.30.252.153&lt;/code&gt; =&amp;gt; &lt;code&gt;leafwind.github.io&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;這裡的箭頭是指網頁內容，並不是真的轉址，網址仍然是 &lt;code&gt;leafwind.tw&lt;/code&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;而其實新增這個 &lt;code&gt;CNAME&lt;/code&gt; 檔案還有另一個功能&lt;/p&gt;
+&lt;p&gt;就是當你輸入 &lt;code&gt;leafwind.github.io&lt;/code&gt; 的時候，會自動轉址到 &lt;code&gt;leafwind.tw&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;（&lt;code&gt;CNAME&lt;/code&gt; 的 C 就是 Canonical 的意思）&lt;/p&gt;
+&lt;p&gt;[1.] &lt;a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/"&gt;setting-up-a-custom-domain-with-github-pages/&lt;/a&gt;&lt;/p&gt;</summary><category term="github pages"></category><category term="domain"></category></entry><entry><title>解決 python 在讀取 .json 檔案時佔用記憶體過多的問題</title><link href="http://leafwind.tw/20160219-release-python-memory-by-sub-process.html" rel="alternate"></link><updated>2016-02-19T00:00:00+08:00</updated><author><name>leafwind</name></author><id>tag:leafwind.tw,2016-02-19:20160219-release-python-memory-by-sub-process.html</id><summary type="html">&lt;h2&gt;故事是這樣的&lt;/h2&gt;
 &lt;p&gt;某天我發現原本執行都沒有問題的程式突然掛了&lt;/p&gt;
 &lt;p&gt;仔細一查發現是記憶體使用過多，因為有別人的程式需要資源，跑到一半就被 OS 給砍了&lt;/p&gt;
 &lt;p&gt;（題外話，砍的優先順序包括你的程式跑了多久、吃多少記憶體等等一堆參數）&lt;/p&gt;
