@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="tw">
+<head>
+    <meta charset="utf-8">
+    <title>解決 python 在讀取 .json 檔案時佔用記憶體過多的問題 - LeafHub</title>
+    <meta name="description" content="">
+    <meta name="author" content="leafwind">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="http://leafwind.tw/favicon.ico"/>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://leafwind.tw/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://leafwind.tw/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://leafwind.tw/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://leafwind.tw/theme/local.css" rel="stylesheet">
+    <link href="http://leafwind.tw/theme/pygments.css" rel="stylesheet">
+
+    <!-- ShareThis Social Button-->
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
+        stLight.options({
+            publisher: "b9823d16-48e4-484a-8422-413740fd6b67",
+            doNotHash: false,
+            doNotCopy: false,
+            hashAddressBar: false
+        });
+    </script>
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+        <link href="feeds/all.atom.xml" rel="alternate" title="LeafHub" type="application/atom+xml">
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://leafwind.tw">LeafHub</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>解決 python 在讀取 .json 檔案時佔用記憶體過多的問題</h1>
+五 19 2月 2016
+
+by <a class="url fn" href="http://leafwind.tw/author/leafwind.html">leafwind</a>
+ 
+
+
+        </div>
+	
+        <div class="sharethis-top">
+            <span class='st_fblike_hcount' displayText='Facebook Like'></span>
+            <span class='st_plusone_hcount' displayText='Google +1'></span>
+            <span class='st_twitter_hcount' displayText='Tweet'></span>
+            <span> PV:0 </span>
+        </div>
+
+        <div><h2>故事是這樣的</h2>
+<p>某天我發現原本執行都沒有問題的程式突然掛了</p>
+<p>仔細一查發現是記憶體使用過多，因為有別人的程式需要資源，跑到一半就被 OS 給砍了</p>
+<p>（題外話，砍的優先順序包括你的程式跑了多久、吃多少記憶體等等一堆參數）</p>
+<p>而我心中以為，某些用不到的 object reference 在 function return 之後就會釋放</p>
+<p>顯然並沒有</p>
+<p>於是先找了一些方法像是 <code>del</code> 或 <code>gc.collect()</code> 試圖手動釋放記憶體</p>
+<p>但實驗證實也完全沒有用</p>
+<p>最後找到一篇文章 (1)</p>
+<h4>python 要釋放指定的 object 所佔用的 memory 原來要用到 sub-process</h4>
+<p>著實讓我驚呆了，特此紀念解決的過程：</p>
+<h2>問題開始</h2>
+<p>給定一個 <code>.json</code> file，經過 <code>json.load()</code> 或 <code>json.loads()</code> 讀取為 object 之後  </p>
+<p>佔用的 memory 可能會是原本 text file 的 8~10 倍（ex: 400M file =&gt; 5G memory，取決於 object content）  </p>
+<p>若這個 json file 本來就很大，讀取後系統資源可能就不夠，甚至有機會被 kernel kill  </p>
+<p>就算最後的 output 很小，使用 <code>del</code> 或 <code>gc.collect()</code> 仍然無法在系統端看到記憶體被釋放</p>
+<p>這個問題其實由兩個部分組成</p>
+<ol>
+<li>沒有一個直接的方式釋放 process 在讀檔過程中所佔用的記憶體</li>
+<li>python 讀取 json 檔案非常佔用記憶體</li>
+</ol>
+<h2>Solution1. sub-process (multiprocessing)</h2>
+<p>使用 pyhton 內建的 <code>multiprocessing</code> module</p>
+<p>可以間接做到「釋放用不到的記憶體」</p>
+<p>我不知道 <code>multiprocessing</code> 這個 module 當初開發的目的有沒有包含記憶體釋放</p>
+<p>但它確實可以做到 <code>del</code> 及 <code>gc.collect()</code> 做不到的事情...</p>
+<h3>pros:</h3>
+<p>若程式處理完 <code>.json</code> 之後只會剩下少部分資料</p>
+<p>我們可以把「讀檔-&gt;處理」這一段 code 寫成 subprocess</p>
+<p>這樣只要 subprocess 執行完並 exit 後</p>
+<p>所有暫時佔用的記憶體在 system 端就會被確實釋放</p>
+<h3>cons:</h3>
+<ul>
+<li>inter-process 之間的 object 傳遞似乎有某些限制：</li>
+</ul>
+<p>object size 大到某個程度（ex. dict key size &gt; 40k）之後就會卡死</p>
+<p>（這個詞不精確，其實是跑很久沒回應，但不確定最後會不會停）</p>
+<p>不過幾百個 key 的 dict 還是 OK 的</p>
+<ul>
+<li>當 <code>.json</code> 檔案大到某個程度，一次讀取完所需記憶體比可用記憶體還大的話，此法就沒用了，只能求助法二。</li>
+</ul>
+<h2>Solution2. ijson (streaming)</h2>
+<h3>pros:</h3>
+<ul>
+<li>不管多大的 json file 都能處理（？）</li>
+</ul>
+<h3>cons:</h3>
+<ul>
+<li>需要更動程式架構</li>
+<li>ijson 雖然非常省記憶體，但讀取速度可能也較慢</li>
+</ul>
+<p>（尚未做 benchmark，也無優化過，純粹體感）</p>
+<p>[1.] [Huge memory usage of Python's json module?] (http://stackoverflow.com/questions/11057712/huge-memory-usage-of-pythons-json-module)</p></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'leafhub'; 
+    var disqus_title = '解決 python 在讀取 .json 檔案時佔用記憶體過多的問題';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+        </div>
+        
+        <div class="span3">
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                site view: 724
+                </li>
+            </ul>
+            </div>
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://leafwind.tw/">Archives</a>
+                <li><a href="http://leafwind.tw/tags.html">Tags</a>
+
+
+
+                <li><a href="http://leafwind.tw/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://leafwind.tw/category/comment.html">Comment</a></li>
+                <li><a href="http://leafwind.tw/category/internet.html">Internet</a></li>
+                <li><a href="http://leafwind.tw/category/tech.html">Tech</a></li>
+                <li><a href="http://leafwind.tw/category/technote.html">TechNote</a></li>
+                <li><a href="http://leafwind.tw/category/thinking.html">Thinking</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="http://getpelican.com/">Pelican</a></li>
+                <li><a href="http://python.org/">Python.org</a></li>
+            </ul>
+            </div>
+
+
+            <div class="social">
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Social
+                </li>
+           
+                <li><a href="#">Social Link - TBD</a></li>
+            </ul>
+            </div>
+            </div>
+
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- leafhub -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-2673596548278548"
+                 data-ad-slot="4677126217"
+                 data-ad-format="auto"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://leafwind.tw">LeafHub</a> &copy; leafwind 2012</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
+<script>var _gaq=[['_setAccount','UA-13020973-3'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+ 
+</body>
+</html>
